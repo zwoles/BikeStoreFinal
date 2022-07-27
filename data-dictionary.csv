@@ -1,0 +1,109 @@
+﻿dbo	BuildVersion	Database Version	nvarchar	nvarchar(25)	N						NULL	Version number of the database in 9.yy.mm.dd.00 format.
+dbo	BuildVersion	ModifiedDate	datetime	datetime	N	(getdate())					NULL	Date and time the record was last updated.
+dbo	BuildVersion	SystemInformationID	tinyint	tinyint	N						NULL	Primary key for BuildVersion records.
+dbo	BuildVersion	VersionDate	datetime	datetime	N						NULL	Date and time the record was last updated.
+dbo	ErrorLog	ErrorLine	int	int	Y						NULL	The line number at which the error occurred.
+dbo	ErrorLog	ErrorLogID	int	int	N		PK				NULL	Primary key for ErrorLog records.
+dbo	ErrorLog	ErrorMessage	nvarchar	nvarchar(4000)	N						NULL	The message text of the error that occurred.
+dbo	ErrorLog	ErrorNumber	int	int	N						NULL	The error number of the error that occurred.
+dbo	ErrorLog	ErrorProcedure	nvarchar	nvarchar(126)	Y						NULL	The name of the stored procedure or trigger where the error occurred.
+dbo	ErrorLog	ErrorSeverity	int	int	Y						NULL	The severity of the error that occurred.
+dbo	ErrorLog	ErrorState	int	int	Y						NULL	The state number of the error that occurred.
+dbo	ErrorLog	ErrorTime	datetime	datetime	N	(getdate())					NULL	The date and time at which the error occurred.
+dbo	ErrorLog	UserName	sysname	sysname	N						NULL	The user who executed the batch in which the error occurred.
+SalesLT	Address	AddressID	int	int	N		PK				NULL	Primary key for Address records.
+SalesLT	Address	AddressLine1	nvarchar	nvarchar(60)	N						NULL	First street address line.
+SalesLT	Address	AddressLine2	nvarchar	nvarchar(60)	Y						NULL	Second street address line.
+SalesLT	Address	City	nvarchar	nvarchar(30)	N						NULL	Name of the city.
+SalesLT	Address	CountryRegion	Name	Name:nvarchar(100)	N						NULL	NULL
+SalesLT	Address	ModifiedDate	datetime	datetime	N	(getdate())					NULL	Date and time the record was last updated.
+SalesLT	Address	PostalCode	nvarchar	nvarchar(15)	N						NULL	Postal code for the street address.
+SalesLT	Address	rowguid	uniqueidentifier	uniqueidentifier	N	(newid())			UK		NULL	ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+SalesLT	Address	StateProvince	Name	Name:nvarchar(100)	N						NULL	Name of state or province.
+SalesLT	Customer	CompanyName	nvarchar	nvarchar(128)	Y						NULL	The customer's organization.
+SalesLT	Customer	CustomerID	int	int	N		PK				NULL	Primary key for Customer records.
+SalesLT	Customer	EmailAddress	nvarchar	nvarchar(50)	Y						NULL	E-mail address for the person.
+SalesLT	Customer	FirstName	Name	Name:nvarchar(100)	N						NULL	First name of the person.
+SalesLT	Customer	LastName	Name	Name:nvarchar(100)	N						NULL	Last name of the person.
+SalesLT	Customer	MiddleName	Name	Name:nvarchar(100)	Y						NULL	Middle name or middle initial of the person.
+SalesLT	Customer	ModifiedDate	datetime	datetime	N	(getdate())					NULL	Date and time the record was last updated.
+SalesLT	Customer	NameStyle	NameStyle	NameStyle:bit	N	((0))					NULL	0 = The data in FirstName and LastName are stored in western style (first name, last name) order.  1 = Eastern style (last name, first name) order.
+SalesLT	Customer	PasswordHash	varchar	varchar(128)	N						NULL	Password for the e-mail account.
+SalesLT	Customer	PasswordSalt	varchar	varchar(10)	N						NULL	Random value concatenated with the password string before the password is hashed.
+SalesLT	Customer	Phone	Phone	Phone:nvarchar(50)	Y						NULL	Phone number associated with the person.
+SalesLT	Customer	rowguid	uniqueidentifier	uniqueidentifier	N	(newid())			UK		NULL	ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+SalesLT	Customer	SalesPerson	nvarchar	nvarchar(256)	Y						NULL	The customer's sales person, an employee of AdventureWorks Cycles.
+SalesLT	Customer	Suffix	nvarchar	nvarchar(10)	Y						NULL	Surname suffix. For example, Sr. or Jr.
+SalesLT	Customer	Title	nvarchar	nvarchar(8)	Y						NULL	A courtesy title. For example, Mr. or Ms.
+SalesLT	CustomerAddress	AddressID	int	int	N		PK	FK			NULL	Primary key. Foreign key to Address.AddressID.
+SalesLT	CustomerAddress	AddressType	Name	Name:nvarchar(100)	N						NULL	The kind of Address. One of: Archive, Billing, Home, Main Office, Primary, Shipping
+SalesLT	CustomerAddress	CustomerID	int	int	N		PK	FK			NULL	Primary key. Foreign key to Customer.CustomerID.
+SalesLT	CustomerAddress	ModifiedDate	datetime	datetime	N	(getdate())					NULL	Date and time the record was last updated.
+SalesLT	CustomerAddress	rowguid	uniqueidentifier	uniqueidentifier	N	(newid())			UK		NULL	ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+SalesLT	Product	Color	nvarchar	nvarchar(15)	Y						NULL	Product color.
+SalesLT	Product	DiscontinuedDate	datetime	datetime	Y						NULL	Date the product was discontinued.
+SalesLT	Product	ListPrice	money	money	N					Check	NULL	Selling price.
+SalesLT	Product	ModifiedDate	datetime	datetime	N	(getdate())					NULL	Date and time the record was last updated.
+SalesLT	Product	Name	Name	Name:nvarchar(100)	N				UK		NULL	Name of the product.
+SalesLT	Product	ProductCategoryID	int	int	Y			FK			NULL	Product is a member of this product category. Foreign key to ProductCategory.ProductCategoryID. 
+SalesLT	Product	ProductID	int	int	N		PK				NULL	Primary key for Product records.
+SalesLT	Product	ProductModelID	int	int	Y			FK			NULL	Product is a member of this product model. Foreign key to ProductModel.ProductModelID.
+SalesLT	Product	ProductNumber	nvarchar	nvarchar(25)	N				UK		NULL	Unique product identification number.
+SalesLT	Product	rowguid	uniqueidentifier	uniqueidentifier	N	(newid())			UK		NULL	ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+SalesLT	Product	SellEndDate	datetime	datetime	Y						NULL	Date the product was no longer available for sale.
+SalesLT	Product	SellStartDate	datetime	datetime	N						NULL	Date the product was available for sale.
+SalesLT	Product	Size	nvarchar	nvarchar(5)	Y						NULL	Product size.
+SalesLT	Product	StandardCost	money	money	N					Check	NULL	Standard cost of the product.
+SalesLT	Product	ThumbNailPhoto	varbinary	varbinary(MAX)	Y						NULL	Small image of the product.
+SalesLT	Product	ThumbnailPhotoFileName	nvarchar	nvarchar(50)	Y						NULL	Small image file name.
+SalesLT	Product	Weight	decimal	decimal(8, 2)	Y					Check	NULL	Product weight.
+SalesLT	ProductCategory	ModifiedDate	datetime	datetime	N	(getdate())					NULL	Date and time the record was last updated.
+SalesLT	ProductCategory	Name	Name	Name:nvarchar(100)	N				UK		NULL	Category description.
+SalesLT	ProductCategory	ParentProductCategoryID	int	int	Y			FK			NULL	Product category identification number of immediate ancestor category. Foreign key to ProductCategory.ProductCategoryID.
+SalesLT	ProductCategory	ProductCategoryID	int	int	N		PK				NULL	Primary key for ProductCategory records.
+SalesLT	ProductCategory	rowguid	uniqueidentifier	uniqueidentifier	N	(newid())			UK		NULL	ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+SalesLT	ProductDescription	Description	nvarchar	nvarchar(400)	N						NULL	Description of the product.
+SalesLT	ProductDescription	ModifiedDate	datetime	datetime	N	(getdate())					NULL	Date and time the record was last updated.
+SalesLT	ProductDescription	ProductDescriptionID	int	int	N		PK				NULL	Primary key for ProductDescription records.
+SalesLT	ProductDescription	rowguid	uniqueidentifier	uniqueidentifier	N	(newid())			UK		NULL	ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+SalesLT	ProductModel	CatalogDescription	xml	xml	Y						NULL	NULL
+SalesLT	ProductModel	ModifiedDate	datetime	datetime	N	(getdate())					NULL	NULL
+SalesLT	ProductModel	Name	Name	Name:nvarchar(100)	N				UK		NULL	NULL
+SalesLT	ProductModel	ProductModelID	int	int	N		PK				NULL	NULL
+SalesLT	ProductModel	rowguid	uniqueidentifier	uniqueidentifier	N	(newid())			UK		NULL	NULL
+SalesLT	ProductModelProductDescription	Culture	nchar	nchar(6)	N		PK				NULL	The culture for which the description is written
+SalesLT	ProductModelProductDescription	ModifiedDate	datetime	datetime	N	(getdate())					NULL	Date and time the record was last updated.
+SalesLT	ProductModelProductDescription	ProductDescriptionID	int	int	N		PK	FK			NULL	Primary key. Foreign key to ProductDescription.ProductDescriptionID.
+SalesLT	ProductModelProductDescription	ProductModelID	int	int	N		PK	FK			NULL	Primary key. Foreign key to ProductModel.ProductModelID.
+SalesLT	ProductModelProductDescription	rowguid	uniqueidentifier	uniqueidentifier	N	(newid())			UK		NULL	NULL
+SalesLT	SalesOrderDetail	LineTotal	numeric	numeric(38, 6)	N						(isnull(([UnitPrice]*((1.0)-[UnitPriceDiscount]))*[OrderQty],(0.0)))	Per product subtotal. Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty.
+SalesLT	SalesOrderDetail	ModifiedDate	datetime	datetime	N	(getdate())					NULL	Date and time the record was last updated.
+SalesLT	SalesOrderDetail	OrderQty	smallint	smallint	N					Check	NULL	Quantity ordered per product.
+SalesLT	SalesOrderDetail	ProductID	int	int	N			FK			NULL	Product sold to customer. Foreign key to Product.ProductID.
+SalesLT	SalesOrderDetail	rowguid	uniqueidentifier	uniqueidentifier	N	(newid())			UK		NULL	ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+SalesLT	SalesOrderDetail	SalesOrderDetailID	int	int	N		PK				NULL	Primary key. One incremental unique number per product sold.
+SalesLT	SalesOrderDetail	SalesOrderID	int	int	N		PK	FK			NULL	Primary key. Foreign key to SalesOrderHeader.SalesOrderID.
+SalesLT	SalesOrderDetail	UnitPrice	money	money	N					Check	NULL	Selling price of a single product.
+SalesLT	SalesOrderDetail	UnitPriceDiscount	money	money	N	((0.0))				Check	NULL	Discount amount.
+SalesLT	SalesOrderHeader	AccountNumber	AccountNumber	AccountNumber:nvarchar(30)	Y						NULL	Financial accounting number reference.
+SalesLT	SalesOrderHeader	BillToAddressID	int	int	Y			FK			NULL	The ID of the location to send invoices.  Foreign key to the Address table.
+SalesLT	SalesOrderHeader	Comment	nvarchar	nvarchar(MAX)	Y						NULL	Sales representative comments.
+SalesLT	SalesOrderHeader	CreditCardApprovalCode	varchar	varchar(15)	Y						NULL	Approval code provided by the credit card company.
+SalesLT	SalesOrderHeader	CustomerID	int	int	N			FK			NULL	Customer identification number. Foreign key to Customer.CustomerID.
+SalesLT	SalesOrderHeader	DueDate	datetime	datetime	N						NULL	Date the order is due to the customer.
+SalesLT	SalesOrderHeader	Freight	money	money	N	((0.00))				Check	NULL	Shipping cost.
+SalesLT	SalesOrderHeader	ModifiedDate	datetime	datetime	N	(getdate())					NULL	Date and time the record was last updated.
+SalesLT	SalesOrderHeader	OnlineOrderFlag	Flag	Flag:bit	N	((1))					NULL	0 = Order placed by sales person. 1 = Order placed online by customer.
+SalesLT	SalesOrderHeader	OrderDate	datetime	datetime	N	(getdate())					NULL	Dates the sales order was created.
+SalesLT	SalesOrderHeader	PurchaseOrderNumber	OrderNumber	OrderNumber:nvarchar(50)	Y						NULL	Customer purchase order number reference. 
+SalesLT	SalesOrderHeader	RevisionNumber	tinyint	tinyint	N	((0))					NULL	Incremental number to track changes to the sales order over time.
+SalesLT	SalesOrderHeader	rowguid	uniqueidentifier	uniqueidentifier	N	(newid())			UK		NULL	ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
+SalesLT	SalesOrderHeader	SalesOrderID	int	int	N		PK				NULL	Primary key.
+SalesLT	SalesOrderHeader	SalesOrderNumber	nvarchar	nvarchar(25)	N				UK		(isnull(N'SO'+CONVERT([nvarchar](23),[SalesOrderID],0),N'*** ERROR ***'))	Unique sales order identification number.
+SalesLT	SalesOrderHeader	ShipDate	datetime	datetime	Y						NULL	Date the order was shipped to the customer.
+SalesLT	SalesOrderHeader	ShipMethod	nvarchar	nvarchar(50)	N						NULL	Shipping method. Foreign key to ShipMethod.ShipMethodID.
+SalesLT	SalesOrderHeader	ShipToAddressID	int	int	Y			FK			NULL	The ID of the location to send goods.  Foreign key to the Address table.
+SalesLT	SalesOrderHeader	Status	tinyint	tinyint	N	((1))				Check	NULL	Order current status. 1 = In process; 2 = Approved; 3 = Backordered; 4 = Rejected; 5 = Shipped; 6 = Cancelled
+SalesLT	SalesOrderHeader	SubTotal	money	money	N	((0.00))				Check	NULL	Sales subtotal. Computed as SUM(SalesOrderDetail.LineTotal)for the appropriate SalesOrderID.
+SalesLT	SalesOrderHeader	TaxAmt	money	money	N	((0.00))				Check	NULL	Tax amount.
+SalesLT	SalesOrderHeader	TotalDue	money	money	N						(isnull(([SubTotal]+[TaxAmt])+[Freight],(0)))	Total due from customer. Computed as Subtotal + TaxAmt + Freight.

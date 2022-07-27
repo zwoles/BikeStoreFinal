@@ -1,0 +1,12 @@
+﻿dbo	BuildVersion	2009-01-22 14:09:59.377	2009-01-22 14:09:59.377	1	Current version number of the AdventureWorksLT 2008 sample database. 
+dbo	ErrorLog	2009-01-22 14:09:59.280	2009-01-22 14:09:59.313	0	Audit table tracking errors in the the AdventureWorks database that are caught by the CATCH block of a TRY...CATCH construct. Data is inserted by stored procedure dbo.uspLogError when it is executed from inside the CATCH block of a TRY...CATCH construct.
+SalesLT	Address	2009-01-22 14:09:59.377	2009-01-22 14:10:03.057	450	Street address information for customers.
+SalesLT	Customer	2009-01-22 14:09:59.377	2009-01-22 14:10:03.057	847	Customer information.
+SalesLT	CustomerAddress	2009-01-22 14:09:59.390	2009-01-22 14:10:03.010	417	Cross-reference table mapping customers to their address(es).
+SalesLT	Product	2009-01-22 14:09:59.390	2009-01-22 14:10:03.117	295	Products sold or used in the manfacturing of sold products.
+SalesLT	ProductCategory	2009-01-22 14:09:59.390	2009-01-22 14:10:03.040	41	High-level product categorization.
+SalesLT	ProductDescription	2009-01-22 14:09:59.390	2009-01-22 14:10:03.117	762	Product descriptions in several languages.
+SalesLT	ProductModel	2009-01-22 14:09:59.390	2009-01-22 14:10:03.117	128	NULL
+SalesLT	ProductModelProductDescription	2009-01-22 14:09:59.407	2009-01-22 14:10:03.117	762	Cross-reference table mapping product descriptions and the language the description is written in.
+SalesLT	SalesOrderDetail	2009-01-22 14:09:59.407	2009-01-22 14:10:03.070	542	Individual products associated with a specific sales order. See SalesOrderHeader.
+SalesLT	SalesOrderHeader	2009-01-22 14:09:59.407	2009-01-22 14:10:03.087	32	General sales order information.
